@@ -1,0 +1,14 @@
+<Defs>
+  <IncidentDef>
+    <defName>library_invitation_found</defName>
+    <category>Misc</category>
+    <label>library invitation</label>
+    <targetTags>
+      <li>Map_PlayerHome</li>
+    </targetTags>
+    <letterLabel>Invitation</letterLabel>
+    <workerClass>LibraryOfTheRim.InvitationWorker</workerClass>
+    <baseChance>0</baseChance>
+    <requireColonistsPresent>True</requireColonistsPresent>
+  </IncidentDef>
+</Defs>

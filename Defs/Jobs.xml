@@ -1,0 +1,18 @@
+<Defs>
+
+    <!-- Burn book-->
+  <JobDef>
+    <defName>BurnBook</defName>
+    <driverClass>LibraryOfTheRim.JobDriver_BurnBook</driverClass>
+    <reportString>burning book.</reportString>
+    <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+  </JobDef>
+
+  <!-- Invitation -->
+  <JobDef>
+    <defName>SignLibraryInvitation</defName>
+    <driverClass>LibraryOfTheRim.JobDriver_SignLibraryInvitation</driverClass>
+    <reportString>signing the invitation.</reportString>
+    <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+  </JobDef>
+</Defs>

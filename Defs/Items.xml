@@ -1,0 +1,191 @@
+<Defs>
+
+<!-- Book base-->
+
+  <ThingDef Name="LibraryBookBase" ParentName="ResourceBase" Abstract="True">
+
+    <description>A book retrieved from the library. If read, the book will burn, granting you various items that belonged to the booked person.</description>
+    <graphicData>
+      <texPath>Things/Item/Special/LibraryBook</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <resourceReadoutPriority>Middle</resourceReadoutPriority>
+    <soundInteract>Wood_Drop</soundInteract>
+    <soundDrop>Wood_Drop</soundDrop>
+    <stackLimit>1</stackLimit>
+    <useHitPoints>true</useHitPoints>
+    <statBases>
+      <Mass>2</Mass>
+      <Flammability>1</Flammability>
+    </statBases>
+    <thingCategories>
+      <li>ItemsMisc</li>
+    </thingCategories>
+    <drawGUIOverlay>false</drawGUIOverlay>
+    <tradeability>Sellable</tradeability>
+    <techLevel>Ultra</techLevel>
+    <tradeTags>
+      <li>ExoticMisc</li>
+    </tradeTags>
+    <comps>
+        <li Class="CompProperties_Usable">
+          <useJob>BurnBook</useJob>
+          <useLabel>Read the book</useLabel>
+        </li>
+    </comps>
+  </ThingDef>
+
+<!-- Books -->
+
+  <ThingDef ParentName="LibraryBookBase">
+    <defName>libraryBook_canard</defName>
+    <label>book of the library (Canard)</label>
+    <statBases>
+      <MarketValue>100</MarketValue>
+      <MaxHitPoints>100</MaxHitPoints>
+    </statBases>
+    <comps>
+        <li Class="LibraryOfTheRim.CompProperties_LibraryBook">
+            <!-- 7 being civitatis and 1 being canard -->
+            <minRank>1</minRank>
+            <maxRank>1</maxRank>
+        </li>
+    </comps>
+  </ThingDef>
+
+  <ThingDef ParentName="LibraryBookBase">
+    <defName>libraryBook_myth</defName>
+    <label>book of the library (Urban Myth)</label>
+    <statBases>
+      <MarketValue>500</MarketValue>
+      <MaxHitPoints>100</MaxHitPoints>
+    </statBases>
+    <comps>
+        <li Class="LibraryOfTheRim.CompProperties_LibraryBook">
+            <!-- 7 being civitatis and 1 being canard -->
+            <minRank>1</minRank>
+            <maxRank>2</maxRank>
+        </li>
+    </comps>
+  </ThingDef>
+
+  <ThingDef ParentName="LibraryBookBase">
+    <defName>libraryBook_legend</defName>
+    <label>book of the library (Urban Legend)</label>
+    <statBases>
+      <MarketValue>1000</MarketValue>
+      <MaxHitPoints>100</MaxHitPoints>
+    </statBases>
+    <comps>
+        <li Class="LibraryOfTheRim.CompProperties_LibraryBook">
+            <!-- 7 being civitatis and 1 being canard -->
+            <minRank>2</minRank>
+            <maxRank>3</maxRank>
+        </li>
+    </comps>
+  </ThingDef>
+
+  <ThingDef ParentName="LibraryBookBase">
+    <defName>libraryBook_plague</defName>
+    <label>book of the library (Urban Plague)</label>
+    <statBases>
+      <MarketValue>1500</MarketValue>
+      <MaxHitPoints>100</MaxHitPoints>
+    </statBases>
+    <comps>
+        <li Class="LibraryOfTheRim.CompProperties_LibraryBook">
+            <!-- 7 being civitatis and 1 being canard -->
+            <minRank>3</minRank>
+            <maxRank>4</maxRank>
+        </li>
+    </comps>
+  </ThingDef>
+
+  <ThingDef ParentName="LibraryBookBase">
+    <defName>libraryBook_nightmare</defName>
+    <label>book of the library (Urban Nightmare)</label>
+    <statBases>
+      <MarketValue>2000</MarketValue>
+      <MaxHitPoints>100</MaxHitPoints>
+    </statBases>
+    <comps>
+        <li Class="LibraryOfTheRim.CompProperties_LibraryBook">
+            <!-- 7 being civitatis and 1 being canard -->
+            <minRank>4</minRank>
+            <maxRank>5</maxRank>
+        </li>
+    </comps>
+  </ThingDef>
+
+  <ThingDef ParentName="LibraryBookBase">
+    <defName>libraryBook_star</defName>
+    <label>book of the library (Star of The City)</label>
+    <statBases>
+      <MarketValue>2500</MarketValue>
+      <MaxHitPoints>100</MaxHitPoints>
+    </statBases>
+    <comps>
+        <li Class="LibraryOfTheRim.CompProperties_LibraryBook">
+            <!-- 7 being civitatis and 1 being canard -->
+            <minRank>5</minRank>
+            <maxRank>6</maxRank>
+        </li>
+    </comps>
+  </ThingDef>
+
+
+  <ThingDef ParentName="LibraryBookBase">
+    <defName>libraryBook_impurity</defName>
+    <label>book of the library (Impuritas Civitatis)</label>
+    <statBases>
+      <MarketValue>400</MarketValue>
+      <MaxHitPoints>100</MaxHitPoints>
+    </statBases>
+    <comps>
+        <li Class="LibraryOfTheRim.CompProperties_LibraryBook">
+            <!-- 7 being civitatis and 1 being canard -->
+            <minRank>6</minRank>
+            <maxRank>7</maxRank>
+        </li>
+    </comps>
+  </ThingDef>
+
+  <!-- Invitation -->
+
+  <ThingDef ParentName="ResourceBase">
+    <defName>library_invitation</defName>
+    <label>Library Invitation</label>
+    <description>come to my library, become a book twin :heart:</description>
+    <graphicData>
+      <texPath>Things/Item/Special/LibraryInvitation</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <resourceReadoutPriority>Middle</resourceReadoutPriority>
+    <soundInteract>Wood_Drop</soundInteract>
+    <soundDrop>Wood_Drop</soundDrop>
+    <stackLimit>1</stackLimit>
+    <useHitPoints>false</useHitPoints>
+    <statBases>
+      <MarketValue>100</MarketValue>
+      <MaxHitPoints>100</MaxHitPoints>
+      <Mass>0</Mass>
+      <Flammability>0</Flammability>
+    </statBases>
+    <thingCategories>
+      <li>ItemsMisc</li>
+    </thingCategories>
+    <drawGUIOverlay>false</drawGUIOverlay>
+    <tradeability>Sellable</tradeability>
+    <techLevel>Ultra</techLevel>
+    <tradeTags>
+      <li>ExoticMisc</li>
+    </tradeTags>
+    <comps>
+        <li Class="CompProperties_Usable">
+          <useJob>SignLibraryInvitation</useJob>
+          <useLabel>Sign the invitation</useLabel>
+        </li>
+    </comps>
+  </ThingDef>
+
+</Defs>

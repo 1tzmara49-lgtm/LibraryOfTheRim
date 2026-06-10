@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <SoundDef>
+    <defName>book_on</defName>  
+    <context>MapOnly</context>  
+    <maxVoices>1</maxVoices>  
+    
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>book_on</clipPath> 
+          </li>
+        </grains>
+
+        <volumeRange>60~90</volumeRange>      
+
+        <pitchRange>0.95~1.05</pitchRange>    
+
+        <distRange>15~45</distRange>          
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <SoundDef>
+    <defName>book_pop</defName>  
+    <context>MapOnly</context>  
+    <maxVoices>1</maxVoices>  
+    
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>book_pop</clipPath> 
+          </li>
+        </grains>
+
+        <volumeRange>60~90</volumeRange>      
+
+        <pitchRange>0.95~1.05</pitchRange>    
+
+        <distRange>15~45</distRange>          
+      </li>
+    </subSounds>
+  </SoundDef>
+</Defs>

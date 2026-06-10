@@ -1,0 +1,42 @@
+<Defs>
+  <ThingDef ParentName="BuildingBase">
+    <defName>LibraryEntrance</defName>
+    <label>library entrance</label>
+    <description>The entrance to a cave network. It is possible to climb down into the caves below.</description>
+    <size>(1,1)</size>
+    <useHitPoints>false</useHitPoints>
+    <thingClass>LibraryOfTheRim.LibraryEntrance</thingClass>
+    <rotatable>false</rotatable>
+    <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+    <canOverlapZones>false</canOverlapZones>
+    <graphicData>
+      <graphicClass>Graphic_Single</graphicClass>
+      <texPath>Things/Building/Special/LibraryEntrance</texPath>
+      <drawSize>(1,1)</drawSize>
+    </graphicData>
+    <altitudeLayer>FloorEmplacement</altitudeLayer>
+    <fillPercent>0</fillPercent>
+    <passability>Impassable</passability>
+    <holdsRoof>true</holdsRoof>
+    <destroyable>false</destroyable>
+    <building>
+      <isEdifice>true</isEdifice>
+      <deconstructible>false</deconstructible>
+      <isTargetable>false</isTargetable>
+      <isInert>true</isInert>
+      <claimable>false</claimable>
+      <expandHomeArea>false</expandHomeArea>
+    </building>
+    <portal>
+      <pocketMapGenerator>LibrarySubmap</pocketMapGenerator>
+      <pocketMapSize>96</pocketMapSize>
+    </portal>
+    <statBases>
+      <Flammability>0</Flammability>
+    </statBases>
+    <inspectorTabs>
+      <li>ITab_ContentsMapPortal</li>
+    </inspectorTabs>
+
+  </ThingDef>
+</Defs>
