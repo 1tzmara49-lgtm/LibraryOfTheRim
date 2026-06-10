@@ -23,7 +23,7 @@
       <li>Underground_ScatterRuinsSimple</li>
       <li>MutatorCriticalStructures</li>
       <li>MutatorNonCriticalStructures</li>
-      <li>PlaceCaveExit</li>
+      <li>PlaceLibExit</li>
       <li>InsectLair_Cave</li>
       <li>InsectLair_GlowPods</li>
       <li>Plants</li>
@@ -62,5 +62,11 @@
         </li>
       </groups>
     </genStep>
+  </GenStepDef>
+
+  <GenStepDef>
+    <defName>PlaceLibExit</defName>
+    <order>400</order>
+    <genStep Class="LibraryOfTheRim.GenStep_PlaceLibExit"/>
   </GenStepDef>
 </Defs>

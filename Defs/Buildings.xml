@@ -30,6 +30,7 @@
     <portal>
       <pocketMapGenerator>LibrarySubmap</pocketMapGenerator>
       <pocketMapSize>96</pocketMapSize>
+      <exitDef>LibraryExit</exitDef>
     </portal>
     <statBases>
       <Flammability>0</Flammability>
@@ -37,6 +38,23 @@
     <inspectorTabs>
       <li>ITab_ContentsMapPortal</li>
     </inspectorTabs>
+  </ThingDef>
 
+  <!-- Library exit -->
+  <ThingDef Name="LibraryExit" ParentName="PocketMapExit">
+    <defName>LibraryExit</defName>
+    <label>library exit</label>
+    <description>A door.</description>
+    <size>(1,1)</size>
+    <thingClass>PocketMapExit</thingClass>
+    <drawerType>MapMeshAndRealTime</drawerType>
+    <graphicData>
+      <graphicClass>Graphic_Single</graphicClass>
+      <texPath>Things/Building/Special/LibraryEntrance</texPath>
+      <drawSize>(1,1)</drawSize>
+    </graphicData>
+    <statBases>
+      <Flammability>0</Flammability>
+    </statBases>
   </ThingDef>
 </Defs>

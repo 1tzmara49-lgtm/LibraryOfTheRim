@@ -444,7 +444,7 @@ namespace LibraryOfTheRim
             yield return finish;
         }
     }
-    // Library entrance map portal (Test)
+    // Library entrance/exit map portal (Test)
 
     public class LibraryEntrance : MapPortal
     {
@@ -458,17 +458,27 @@ namespace LibraryOfTheRim
         }
     }
 
-    public class LibraryPlaceholder : GenStep
+    public class GenStep_PlaceLibExit : GenStep
     {
-        public override int SeedPart => 481237;
+        public const float ClearRadius = 4.5f;
+
+        public override int SeedPart => 12412314;
 
         public override void Generate(Map map, GenStepParams parms)
         {
-            foreach (IntVec3 cell in map.AllCells)
+            CellFinder.TryFindRandomCell(map, (IntVec3 cell) => cell.Standable(map) && (float)cell.DistanceToEdge(map) > 5.5f, out var result);
+            foreach (IntVec3 item in GenRadial.RadialCellsAround(result, 4.5f, useCenter: true))
             {
-                map.terrainGrid.SetTerrain(cell, TerrainDefOf.Concrete);
+                foreach (Thing item2 in from t in item.GetThingList(map).ToList()
+                                        where t.def.destroyable
+                                        select t)
+                {
+                    item2.Destroy();
+                }
             }
+            GenSpawn.Spawn(ThingMaker.MakeThing(ThingDef.Named("LibraryExit")), result, map);
+            MapGenerator.PlayerStartSpot = result;
         }
-
     }
+
 }
