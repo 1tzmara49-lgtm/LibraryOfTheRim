@@ -15,10 +15,10 @@
       </tileMutators> -->
     </pocketMapProperties>
     <genSteps>
-      <li>ElevationFertility</li>
-      <li>MutatorPostElevationFertility</li>
+      <!-- <li>ElevationFertility</li>
+      <li>MutatorPostElevationFertility</li> -->
       <!-- <li>Underground_RocksFromGrid</li> -->
-      <li>Terrain</li>
+      <!-- <li>Terrain</li> -->
       <!-- <li>MutatorPostTerrain</li>
       <li>Underground_ScatterRuinsSimple</li>
       <li>MutatorCriticalStructures</li>
