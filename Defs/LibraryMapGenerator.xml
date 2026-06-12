@@ -10,25 +10,9 @@
     <pocketMapProperties>
       <biome>Underground</biome>
       <temperature>15</temperature>
-      <!-- <tileMutators>
-        <li>UndergroundCave</li>
-      </tileMutators> -->
     </pocketMapProperties>
     <genSteps>
-      <!-- <li>ElevationFertility</li>
-      <li>MutatorPostElevationFertility</li> -->
-      <!-- <li>Underground_RocksFromGrid</li> -->
-      <!-- <li>Terrain</li> -->
-      <!-- <li>MutatorPostTerrain</li>
-      <li>Underground_ScatterRuinsSimple</li>
-      <li>MutatorCriticalStructures</li>
-      <li>MutatorNonCriticalStructures</li>
-      <li>RockChunks</li> -->
       <li>LibraryFloor_genstep</li>
-      <!-- <li>InsectLair_Cave</li>
-      <li>InsectLair_GlowPods</li>
-      <li>Plants</li>
-      <li>MutatorFinal</li> -->
       <li>Fog</li>
     </genSteps>
   </MapGeneratorDef>
