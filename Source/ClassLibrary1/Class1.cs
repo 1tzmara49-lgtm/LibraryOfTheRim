@@ -25,14 +25,17 @@ namespace LibraryOfTheRim
             LongEventHandler.ExecuteWhenFinished(Init);
         }
 
-        // Note to self: Dont forget to assign properly balanced values. Canard being those dumbass neanderthals and impurity being some adam smashered out archotech twat.
-
         public static Dictionary<int, List<PawnKindDef>> rankDictionary = new Dictionary<int, List<PawnKindDef>>();
 
         private static void Init()
         {
             Log.Message("[Library of The Rim] Started reclassification of pawnkinds");
 
+
+            // commented bc this system sucked ass. might re-add later as an option
+
+            // old system: actually try to calculate the values and shove em into ranks based on thresholds. probably more lore accurate but sucks ass for balancing
+            
             //foreach (PawnKindDef pk in DefDatabase<PawnKindDef>.AllDefs)
             //{
             //if (pk.race != null && pk.race.race != null && !pk.race.race.Humanlike)
@@ -93,6 +96,9 @@ namespace LibraryOfTheRim
             //    rankDictionary[rank].Add(pk);
             //}
 
+
+            // new system: shove all pawns into a list, divide the list by 7 and call it a day
+
             var list = DefDatabase<PawnKindDef>.AllDefs
             .Where(pk => pk.race?.race?.Humanlike == true)
             .Select(pk => new
@@ -125,6 +131,7 @@ namespace LibraryOfTheRim
 
 
     // Library book related bs
+
     public class CompProperties_LibraryBook : CompProperties
     {
         public int minRank = 1;
@@ -198,6 +205,8 @@ namespace LibraryOfTheRim
 
 
     }
+
+    // Book burning job
 
     public class JobDriver_BurnBook : JobDriver
     {
@@ -309,6 +318,9 @@ namespace LibraryOfTheRim
                         }
                     }
                     Log.Message($"[Library of The Rim] Dummypawn equipment pooled");
+                    
+                    // commented bc idk if i should keep it.
+
                     //if (dummyPawn.inventory != null)
                     //{
                     //    foreach (ThingWithComps inv in dummyPawn.inventory.innerContainer.ToList())
@@ -444,7 +456,8 @@ namespace LibraryOfTheRim
             yield return finish;
         }
     }
-    // Library entrance/exit map portal (Test)
+
+    // Library entrance/exit map portal
 
     public class LibraryEntrance : MapPortal
     {
@@ -457,30 +470,8 @@ namespace LibraryOfTheRim
             base.OnEntered(pawn);
         }
     }
-
-    public class GenStep_PlaceLibExit : GenStep
-    {
-        public const float ClearRadius = 4.5f;
-
-        public override int SeedPart => 12412314;
-
-        public override void Generate(Map map, GenStepParams parms)
-        {
-            CellFinder.TryFindRandomCell(map, (IntVec3 cell) => cell.Standable(map) && (float)cell.DistanceToEdge(map) > 5.5f, out var result);
-            foreach (IntVec3 item in GenRadial.RadialCellsAround(result, 4.5f, useCenter: true))
-            {
-                foreach (Thing item2 in from t in item.GetThingList(map).ToList()
-                                        where t.def.destroyable
-                                        select t)
-                {
-                    item2.Destroy();
-                }
-            }
-            GenSpawn.Spawn(ThingMaker.MakeThing(ThingDef.Named("LibraryExit")), result, map);
-            MapGenerator.PlayerStartSpot = result;
-        }
-    }
-
+    
+    // Genstep for library generation. later make generate specific floors once i add em
 
     public class GenStep_test : GenStep
     {
@@ -490,13 +481,18 @@ namespace LibraryOfTheRim
 
         public override void Generate(Map map, GenStepParams parms)
         {   
+
+            // debug - set all floor tiles to concrete
+
             foreach (IntVec3 c in map.AllCells)
             {
                 map.terrainGrid.SetTerrain(c, TerrainDefOf.Concrete);
                 
             }
-            // debug
+            // debug - list of all spawned things
             List<Thing> spawned = new List<Thing>();
+
+            // prefab placement
             IntVec3 pos = map.Center;
 
             PrefabDef prefab = DefDatabase<PrefabDef>.GetNamed("Library_testFloor");
@@ -507,9 +503,11 @@ namespace LibraryOfTheRim
                 map,
                 pos,
                 Rot4.North,
-                // debug
+                // debug, add the spawned doodad to list
                 spawned: spawned
             );
+
+            // set the player start position since the game needs it to properly fog
             exit = map.listerThings.ThingsOfDef(ThingDef.Named("LibraryExit")).FirstOrDefault() as PocketMapExit;
             if (exit == null)
             {
@@ -520,6 +518,8 @@ namespace LibraryOfTheRim
 
 
             Log.Message($"[Library of The Rim] Spawned {spawned.Count} things.");
+
+            // jesus christ this sucks
         }
     }
 }
