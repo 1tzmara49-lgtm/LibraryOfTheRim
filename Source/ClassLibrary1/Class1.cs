@@ -481,4 +481,33 @@ namespace LibraryOfTheRim
         }
     }
 
+
+    public class GenStep_test : GenStep
+    {
+        public override int SeedPart => 12412314;
+        public override void Generate(Map map, GenStepParams parms)
+        {
+            foreach (IntVec3 c in map.AllCells)
+            {
+                map.terrainGrid.SetTerrain(c, TerrainDefOf.Concrete);
+            }
+            // debug
+            List<Thing> spawned = new List<Thing>();
+            IntVec3 pos = map.Center;
+
+            PrefabDef prefab = DefDatabase<PrefabDef>.GetNamed("Library_testFloor");
+
+            Log.Message($"Spawnins {prefab} at map {map}, positioned at {pos}");
+            PrefabUtility.SpawnPrefab(
+                prefab,
+                map,
+                pos,
+                Rot4.North,
+                // debug
+                spawned: spawned
+            );
+            
+            Log.Message($"Spawned {spawned.Count} things.");
+        }
+    }
 }
