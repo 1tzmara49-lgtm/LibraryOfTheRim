@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <MapGeneratorDef>
+    <defName>LibrarySubmap</defName>
+    <label>the library</label>
+    <isUnderground>false</isUnderground>
+    <forceCaves>false</forceCaves>
+    <ignoreAreaRevealedLetter>true</ignoreAreaRevealedLetter>
+    <disableCallAid>true</disableCallAid>
+    <pocketMapProperties>
+      <biome>Underground</biome>
+      <temperature>15</temperature>
+      <!-- <tileMutators>
+        <li>UndergroundCave</li>
+      </tileMutators> -->
+    </pocketMapProperties>
+    <genSteps>
+      <li>ElevationFertility</li>
+      <li>MutatorPostElevationFertility</li>
+      <!-- <li>Underground_RocksFromGrid</li> -->
+      <li>Terrain</li>
+      <!-- <li>MutatorPostTerrain</li>
+      <li>Underground_ScatterRuinsSimple</li>
+      <li>MutatorCriticalStructures</li>
+      <li>MutatorNonCriticalStructures</li>
+      <li>RockChunks</li> -->
+      <li>LibraryFloor_genstep</li>
+      <!-- <li>InsectLair_Cave</li>
+      <li>InsectLair_GlowPods</li>
+      <li>Plants</li>
+      <li>MutatorFinal</li> -->
+      <li>Fog</li>
+    </genSteps>
+  </MapGeneratorDef>
+
+  <GenStepDef>
+    <defName>LibraryFloor_genstep</defName>
+    <order>551</order>
+    <genStep Class="LibraryOfTheRim.GenStep_test" />
+  </GenStepDef>
+</Defs>

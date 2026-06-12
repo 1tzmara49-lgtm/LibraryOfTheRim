@@ -2,7 +2,7 @@
   <ThingDef ParentName="BuildingBase">
     <defName>LibraryEntrance</defName>
     <label>library entrance</label>
-    <description>The entrance to a cave network. It is possible to climb down into the caves below.</description>
+    <description>The entrance to the library.</description>
     <size>(1,1)</size>
     <useHitPoints>false</useHitPoints>
     <thingClass>LibraryOfTheRim.LibraryEntrance</thingClass>

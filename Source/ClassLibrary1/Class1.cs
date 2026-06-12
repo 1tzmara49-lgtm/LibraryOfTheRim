@@ -485,11 +485,15 @@ namespace LibraryOfTheRim
     public class GenStep_test : GenStep
     {
         public override int SeedPart => 12412314;
+
+        private PocketMapExit exit;
+
         public override void Generate(Map map, GenStepParams parms)
-        {
+        {   
             foreach (IntVec3 c in map.AllCells)
             {
                 map.terrainGrid.SetTerrain(c, TerrainDefOf.Concrete);
+                
             }
             // debug
             List<Thing> spawned = new List<Thing>();
@@ -497,7 +501,7 @@ namespace LibraryOfTheRim
 
             PrefabDef prefab = DefDatabase<PrefabDef>.GetNamed("Library_testFloor");
 
-            Log.Message($"Spawnins {prefab} at map {map}, positioned at {pos}");
+            Log.Message($"[Library of The Rim] Spawning {prefab} at map {map}, positioned at {pos}");
             PrefabUtility.SpawnPrefab(
                 prefab,
                 map,
@@ -506,8 +510,16 @@ namespace LibraryOfTheRim
                 // debug
                 spawned: spawned
             );
-            
-            Log.Message($"Spawned {spawned.Count} things.");
+            exit = map.listerThings.ThingsOfDef(ThingDef.Named("LibraryExit")).FirstOrDefault() as PocketMapExit;
+            if (exit == null)
+            {
+                Log.Error("[Library of The Rim] No exit found for library generation.");
+            }
+            Log.Message($"[Library of The Rim] Exit found! {exit} at {exit.Position}");
+            MapGenerator.PlayerStartSpot = exit.Position;
+
+
+            Log.Message($"[Library of The Rim] Spawned {spawned.Count} things.");
         }
     }
 }
