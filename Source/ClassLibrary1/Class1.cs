@@ -13,6 +13,7 @@ using Verse.AI;
 using Verse.Noise;
 using Verse.Sound;
 using static System.Collections.Specialized.BitVector32;
+using HarmonyLib;
 
 namespace LibraryOfTheRim
 {
@@ -470,7 +471,27 @@ namespace LibraryOfTheRim
             base.OnEntered(pawn);
         }
     }
-    
+
+    // Library mapComp
+
+    public class LibraryMapComponent : MapComponent
+    {
+        public bool initialized;
+
+        public LibraryMapComponent(Map map) : base(map)
+        {
+            Log.Message("[Library of The Rim] Library submap component active");
+        }
+
+        public override void FinalizeInit()
+        {
+            base.FinalizeInit();
+
+            initialized = true;
+        }
+    }
+
+
     // Genstep for library generation. later make generate specific floors once i add em
 
     public class GenStep_test : GenStep
@@ -520,6 +541,10 @@ namespace LibraryOfTheRim
             Log.Message($"[Library of The Rim] Spawned {spawned.Count} things.");
 
             // jesus christ this sucks
+
+            LibraryMapComponent comp = map.GetComponent<LibraryMapComponent>();
+
+            comp.initialized = true;
         }
     }
 }
