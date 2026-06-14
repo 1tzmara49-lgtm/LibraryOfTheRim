@@ -18,6 +18,23 @@ using HarmonyLib;
 namespace LibraryOfTheRim
 {
 
+    // filthy patch applier
+
+    [StaticConstructorOnStartup]
+    public static class LibraryHarmony
+    {
+        static LibraryHarmony()
+        {
+            var harmony = new Harmony("1tzmara.LibraryOfTheRim");
+            harmony.PatchAll();
+
+            Log.Message("[Library of The Rim] Harmony patches initialized.");
+        }
+    }
+
+
+    // pawnKind classifier
+
     [StaticConstructorOnStartup]
     public static class PawnKindClassifier
     {
@@ -33,10 +50,10 @@ namespace LibraryOfTheRim
             Log.Message("[Library of The Rim] Started reclassification of pawnkinds");
 
 
-            // commented bc this system sucked ass. might re-add later as an option
+            // [!] commented bc this system sucked ass. might re-add later as an option
 
             // old system: actually try to calculate the values and shove em into ranks based on thresholds. probably more lore accurate but sucks ass for balancing
-            
+
             //foreach (PawnKindDef pk in DefDatabase<PawnKindDef>.AllDefs)
             //{
             //if (pk.race != null && pk.race.race != null && !pk.race.race.Humanlike)
@@ -98,7 +115,7 @@ namespace LibraryOfTheRim
             //}
 
 
-            // new system: shove all pawns into a list, divide the list by 7 and call it a day
+            // [!] new system: shove all pawns into a list, divide the list by 7 and call it a day
 
             var list = DefDatabase<PawnKindDef>.AllDefs
             .Where(pk => pk.race?.race?.Humanlike == true)
@@ -319,7 +336,7 @@ namespace LibraryOfTheRim
                         }
                     }
                     Log.Message($"[Library of The Rim] Dummypawn equipment pooled");
-                    
+
                     // commented bc idk if i should keep it.
 
                     //if (dummyPawn.inventory != null)
@@ -467,9 +484,20 @@ namespace LibraryOfTheRim
             if (!beenEntered)
             {
                 TaggedString text = "EnteredMegahiveText".Translate(pawn.Named("PAWN"));
+
             }
+
+            Map targetMap = this.GetOtherMap();
+
+            var comp = targetMap.GetComponent<LibraryMapComponent>();
+            comp.initialized = true;
+            comp.isLibrary = true;
+
             base.OnEntered(pawn);
         }
+
+
+
     }
 
     // Library mapComp
@@ -478,9 +506,13 @@ namespace LibraryOfTheRim
     {
         public bool initialized;
 
+        public bool isLibrary;
+
         public LibraryMapComponent(Map map) : base(map)
         {
             Log.Message("[Library of The Rim] Library submap component active");
+
+
         }
 
         public override void FinalizeInit()
@@ -501,14 +533,14 @@ namespace LibraryOfTheRim
         private PocketMapExit exit;
 
         public override void Generate(Map map, GenStepParams parms)
-        {   
+        {
 
             // debug - set all floor tiles to concrete
 
             foreach (IntVec3 c in map.AllCells)
             {
                 map.terrainGrid.SetTerrain(c, TerrainDefOf.Concrete);
-                
+
             }
             // debug - list of all spawned things
             List<Thing> spawned = new List<Thing>();
@@ -541,10 +573,45 @@ namespace LibraryOfTheRim
             Log.Message($"[Library of The Rim] Spawned {spawned.Count} things.");
 
             // jesus christ this sucks
-
-            LibraryMapComponent comp = map.GetComponent<LibraryMapComponent>();
-
-            comp.initialized = true;
         }
+
+        // h*rmony patches
+
+        [HarmonyPatch(typeof(GenLocalDate))]
+        [HarmonyPatch(nameof(GenLocalDate.DayPercent))]
+        [HarmonyPatch(new[] { typeof(Map) })]
+        public static class Patch_DayPercent
+        {
+            static bool Prefix(Map map, ref float __result)
+            {
+                if (map.GetComponent<LibraryMapComponent>()?.isLibrary == true)
+                {
+                    __result = 0.525f;
+                    return false;
+                }
+
+                return true;
+            }
+        }
+
+        [HarmonyPatch(typeof(GenCelestial))]
+        [HarmonyPatch(nameof(GenCelestial.CurCelestialSunGlow))]
+        [HarmonyPatch(new[] { typeof(Map) })]
+        public static class Patch_CurSkyGlow
+        {
+            static bool Prefix(Map map, ref float __result)
+            {
+
+                if (map.GetComponent<LibraryMapComponent>()?.isLibrary == true)
+                {
+                    __result = 1f;
+                    return false;
+                }
+
+                return true;
+            }
+        }
+
     }
+
 }
