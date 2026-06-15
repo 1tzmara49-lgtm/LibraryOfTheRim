@@ -475,6 +475,47 @@ namespace LibraryOfTheRim
         }
     }
 
+    // invitation comp class
+
+    public class CompUsable_libr_invitation : CompUsable
+    {
+        public override IEnumerable<FloatMenuOption> CompFloatMenuOptions(Pawn pawn)
+        {
+            bool conditionIsTrue = CheckIfConditionMet(pawn);
+
+            if (conditionIsTrue)
+            {
+                FloatMenuOption disabledOption = new FloatMenuOption("Cannot sign: Library has already opened it's doors", null);
+                disabledOption.Disabled = true;
+                yield return disabledOption;
+            }
+            else
+            {
+                foreach (FloatMenuOption option in base.CompFloatMenuOptions(pawn))
+                {
+                    yield return option;
+                }
+            }
+
+
+        }
+        private bool CheckIfConditionMet(Pawn pawn)
+        {
+
+            Map map = pawn.Map;
+            if (map == null)
+            {
+                return false;
+            }
+            List<Thing> mapList = map.listerThings.ThingsOfDef(ThingDef.Named("libr_library_entrance"));
+            if (mapList?.Count > 0)
+            {
+                return true ;
+            }
+            return false;
+        }
+    }
+
     // Library entrance/exit map portal
 
     public class LibraryEntrance : MapPortal

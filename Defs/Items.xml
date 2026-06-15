@@ -181,6 +181,7 @@
     </tradeTags>
     <comps>
         <li Class="CompProperties_Usable">
+          <compClass>LibraryOfTheRim.CompUsable_libr_invitation</compClass>
           <useJob>libr_sign_library_invitation</useJob>
           <useLabel>Sign the invitation</useLabel>
         </li>
