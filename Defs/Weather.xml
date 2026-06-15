@@ -1,0 +1,37 @@
+<Defs>
+  <WeatherDef Name="Weather_Underground">
+    <defName>libr_library_generalworks</defName>
+    <label>floor of general works</label>
+    <description>The light of the library shines down on you.</description>
+    <repeatable>true</repeatable>
+    <favorability>Good</favorability>
+    <perceivePriority>0</perceivePriority>
+    <skyColorsDay>
+    <sky>(0.949, 0.894, 0.827)</sky>
+    <shadow>(0.949, 0.894, 0.827)</shadow>
+    <overlay>(0.949, 0.894, 0.827)</overlay>
+    <saturation>1.0</saturation>
+    </skyColorsDay>
+
+    <skyColorsDusk>
+    <sky>(0.949, 0.894, 0.827)</sky>
+    <shadow>(0.949, 0.894, 0.827)</shadow>
+    <overlay>(0.949, 0.894, 0.827)</overlay>
+    <saturation>1.0</saturation>
+    </skyColorsDusk>
+
+    <skyColorsNightEdge>
+    <sky>(0.949, 0.894, 0.827)</sky>
+    <shadow>(0.949, 0.894, 0.827)</shadow>
+    <overlay>(0.949, 0.894, 0.827)</overlay>
+    <saturation>1.0</saturation>
+    </skyColorsNightEdge>
+
+    <skyColorsNightMid>
+    <sky>(0.949, 0.894, 0.827)</sky>
+    <shadow>(0.949, 0.894, 0.827)</shadow>
+    <overlay>(0.949, 0.894, 0.827)</overlay>
+    <saturation>1.0</saturation>
+    </skyColorsNightMid>
+  </WeatherDef>
+</Defs>

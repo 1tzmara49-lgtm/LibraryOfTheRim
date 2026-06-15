@@ -2,7 +2,7 @@
 
     <!-- Burn book-->
   <JobDef>
-    <defName>BurnBook</defName>
+    <defName>libr_burn_book</defName>
     <driverClass>LibraryOfTheRim.JobDriver_BurnBook</driverClass>
     <reportString>burning book.</reportString>
     <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
@@ -10,7 +10,7 @@
 
   <!-- Invitation -->
   <JobDef>
-    <defName>SignLibraryInvitation</defName>
+    <defName>libr_sign_library_invitation</defName>
     <driverClass>LibraryOfTheRim.JobDriver_SignLibraryInvitation</driverClass>
     <reportString>signing the invitation.</reportString>
     <allowOpportunisticPrefix>true</allowOpportunisticPrefix>

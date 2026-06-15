@@ -1,6 +1,6 @@
 <Defs>
   <ThingDef ParentName="BuildingBase">
-    <defName>LibraryEntrance</defName>
+    <defName>libr_library_entrance</defName>
     <label>library entrance</label>
     <description>The entrance to the library.</description>
     <size>(1,1)</size>
@@ -28,9 +28,9 @@
       <expandHomeArea>false</expandHomeArea>
     </building>
     <portal>
-      <pocketMapGenerator>LibrarySubmap</pocketMapGenerator>
+      <pocketMapGenerator>libr_library_submap</pocketMapGenerator>
       <pocketMapSize>96</pocketMapSize>
-      <exitDef>LibraryExit</exitDef>
+      <exitDef>libr_library_exit</exitDef>
     </portal>
     <statBases>
       <Flammability>0</Flammability>
@@ -42,7 +42,7 @@
 
   <!-- Library exit -->
   <ThingDef Name="LibraryExit" ParentName="PocketMapExit">
-    <defName>LibraryExit</defName>
+    <defName>libr_library_exit</defName>
     <label>library exit</label>
     <description>A door.</description>
     <size>(1,1)</size>

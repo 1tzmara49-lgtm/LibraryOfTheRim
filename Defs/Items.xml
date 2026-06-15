@@ -3,8 +3,7 @@
 <!-- Book base-->
 
   <ThingDef Name="LibraryBookBase" ParentName="ResourceBase" Abstract="True">
-
-    <description>A book retrieved from the library. If read, the book will burn, granting you various items that belonged to the booked person.</description>
+    <description>A book retrieved from the library. If read, the book will burn down, granting you various items that belonged to the booked person.</description>
     <graphicData>
       <texPath>Things/Item/Special/LibraryBook</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -29,7 +28,7 @@
     </tradeTags>
     <comps>
         <li Class="CompProperties_Usable">
-          <useJob>BurnBook</useJob>
+          <useJob>libr_burn_book</useJob>
           <useLabel>Read the book</useLabel>
         </li>
     </comps>
@@ -38,7 +37,7 @@
 <!-- Books -->
 
   <ThingDef ParentName="LibraryBookBase">
-    <defName>libraryBook_canard</defName>
+    <defName>libr_libraryBook_canard</defName>
     <label>book of the library (Canard)</label>
     <statBases>
       <MarketValue>100</MarketValue>
@@ -54,7 +53,7 @@
   </ThingDef>
 
   <ThingDef ParentName="LibraryBookBase">
-    <defName>libraryBook_myth</defName>
+    <defName>libr_libraryBook_myth</defName>
     <label>book of the library (Urban Myth)</label>
     <statBases>
       <MarketValue>500</MarketValue>
@@ -70,7 +69,7 @@
   </ThingDef>
 
   <ThingDef ParentName="LibraryBookBase">
-    <defName>libraryBook_legend</defName>
+    <defName>libr_libraryBook_legend</defName>
     <label>book of the library (Urban Legend)</label>
     <statBases>
       <MarketValue>1000</MarketValue>
@@ -86,7 +85,7 @@
   </ThingDef>
 
   <ThingDef ParentName="LibraryBookBase">
-    <defName>libraryBook_plague</defName>
+    <defName>libr_libraryBook_plague</defName>
     <label>book of the library (Urban Plague)</label>
     <statBases>
       <MarketValue>1500</MarketValue>
@@ -102,7 +101,7 @@
   </ThingDef>
 
   <ThingDef ParentName="LibraryBookBase">
-    <defName>libraryBook_nightmare</defName>
+    <defName>libr_libraryBook_nightmare</defName>
     <label>book of the library (Urban Nightmare)</label>
     <statBases>
       <MarketValue>2000</MarketValue>
@@ -118,7 +117,7 @@
   </ThingDef>
 
   <ThingDef ParentName="LibraryBookBase">
-    <defName>libraryBook_star</defName>
+    <defName>libr_libraryBook_star</defName>
     <label>book of the library (Star of The City)</label>
     <statBases>
       <MarketValue>2500</MarketValue>
@@ -135,7 +134,7 @@
 
 
   <ThingDef ParentName="LibraryBookBase">
-    <defName>libraryBook_impurity</defName>
+    <defName>libr_libraryBook_impurity</defName>
     <label>book of the library (Impuritas Civitatis)</label>
     <statBases>
       <MarketValue>400</MarketValue>
@@ -153,7 +152,7 @@
   <!-- Invitation -->
 
   <ThingDef ParentName="ResourceBase">
-    <defName>library_invitation</defName>
+    <defName>libr_library_invitation</defName>
     <label>Library Invitation</label>
     <description>come to my library, become a book twin :heart:</description>
     <graphicData>
@@ -182,7 +181,7 @@
     </tradeTags>
     <comps>
         <li Class="CompProperties_Usable">
-          <useJob>SignLibraryInvitation</useJob>
+          <useJob>libr_sign_library_invitation</useJob>
           <useLabel>Sign the invitation</useLabel>
         </li>
     </comps>

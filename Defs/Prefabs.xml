@@ -1,11 +1,11 @@
 <Defs>
     <PrefabDef>
-    <defName>Library_testFloor</defName> <!-- rename -->
+    <defName>libr_library_testFloor</defName> <!-- rename -->
     <size>(12,32)</size>
     <things>
-        <LibraryExit>
+        <libr_library_exit>
         <position>(6, 0, 1)</position>
-        </LibraryExit>
+        </libr_library_exit>
         <Wall>
         <rects>
             <li>(5,0,7,0)</li>

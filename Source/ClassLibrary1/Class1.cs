@@ -186,7 +186,7 @@ namespace LibraryOfTheRim
             if (!PawnKindClassifier.rankDictionary.TryGetValue(rank, out var list) ||
             list.NullOrEmpty())
             {
-                Log.Warning("Book generation yielded no pawnkind. Perhaps there was an error during pawn filtration on startup");
+                Log.Warning("[Library of The Rim] Book generation yielded no pawnkind. Perhaps there was an error during pawn filtration on startup");
                 return null;
 
             }
@@ -254,8 +254,8 @@ namespace LibraryOfTheRim
             return randomAmount.RandomElementByWeight(kvp => kvp.Value).Key;
         }
         private Thing Book => job.targetA.Thing;
-        SoundDef bookOnSound = SoundDef.Named("book_on");
-        SoundDef bookPopSound = SoundDef.Named("book_pop");
+        SoundDef bookOnSound = SoundDef.Named("libr_book_on");
+        SoundDef bookPopSound = SoundDef.Named("libr_book_pop");
         public override bool TryMakePreToilReservations(bool errorOnFailed)
         {
             return pawn.Reserve(Book, job, 1, -1, null, errorOnFailed);
@@ -422,7 +422,7 @@ namespace LibraryOfTheRim
             }
             Pawn targetPawn = pawns.RandomElement();
 
-            Thing thing = ThingMaker.MakeThing(ThingDef.Named("library_invitation"));
+            Thing thing = ThingMaker.MakeThing(ThingDef.Named("libr_library_invitation"));
             if (targetPawn.inventory?.innerContainer != null)
             {
                 targetPawn.inventory.innerContainer.TryAdd(thing);
@@ -457,7 +457,7 @@ namespace LibraryOfTheRim
             yield return sign;
             Toil finish = new Toil();
 
-            Building libraryDoor = (Building)ThingMaker.MakeThing(ThingDef.Named("LibraryEntrance"));
+            Building libraryDoor = (Building)ThingMaker.MakeThing(ThingDef.Named("libr_library_entrance"));
             finish.initAction = () =>
             {
                 GenSpawn.Spawn(
@@ -548,7 +548,7 @@ namespace LibraryOfTheRim
             // prefab placement
             IntVec3 pos = map.Center;
 
-            PrefabDef prefab = DefDatabase<PrefabDef>.GetNamed("Library_testFloor");
+            PrefabDef prefab = DefDatabase<PrefabDef>.GetNamed("libr_library_testFloor");
 
             Log.Message($"[Library of The Rim] Spawning {prefab} at map {map}, positioned at {pos}");
             PrefabUtility.SpawnPrefab(
@@ -561,7 +561,7 @@ namespace LibraryOfTheRim
             );
 
             // set the player start position since the game needs it to properly fog
-            exit = map.listerThings.ThingsOfDef(ThingDef.Named("LibraryExit")).FirstOrDefault() as PocketMapExit;
+            exit = map.listerThings.ThingsOfDef(ThingDef.Named("libr_library_exit")).FirstOrDefault() as PocketMapExit;
             if (exit == null)
             {
                 Log.Error("[Library of The Rim] No exit found for library generation.");

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <BiomeDef Name="libr_Library_Biome">
+    <defName>libr_library_biome</defName>
+    <label>library</label>
+    <description>The library has opened its doors once again.</description>
+    <generatesNaturally>false</generatesNaturally>
+    <animalDensity>0</animalDensity>
+    <plantDensity>0.0</plantDensity>
+    <wildAnimalsCanWanderInto>false</wildAnimalsCanWanderInto>
+    <baseWeatherCommonalities>
+      <libr_library_generalworks>1</libr_library_generalworks>
+    </baseWeatherCommonalities>
+    <diseaseMtbDays>9999</diseaseMtbDays>
+    <maxFishPopulation>0</maxFishPopulation>
+  </BiomeDef>
+</Defs>

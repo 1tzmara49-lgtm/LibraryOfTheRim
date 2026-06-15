@@ -12,7 +12,7 @@ obj/
 # Rider
 .idea/
 
-# Unity leftovers (sometimes appears)
+# Unity leftovers
 *.log
 
 # OS junk

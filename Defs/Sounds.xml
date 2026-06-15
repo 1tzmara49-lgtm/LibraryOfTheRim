@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
   <SoundDef>
-    <defName>book_on</defName>  
+    <defName>libr_book_on</defName>  
     <context>MapOnly</context>  
     <maxVoices>1</maxVoices>  
     
@@ -23,7 +23,7 @@
   </SoundDef>
 
   <SoundDef>
-    <defName>book_pop</defName>  
+    <defName>libr_book_pop</defName>  
     <context>MapOnly</context>  
     <maxVoices>1</maxVoices>  
     

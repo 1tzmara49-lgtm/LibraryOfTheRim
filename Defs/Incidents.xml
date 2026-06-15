@@ -1,6 +1,6 @@
 <Defs>
   <IncidentDef>
-    <defName>library_invitation_found</defName>
+    <defName>libr_invitation_found</defName>
     <category>Misc</category>
     <label>library invitation</label>
     <targetTags>

@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
   <MapGeneratorDef>
-    <defName>LibrarySubmap</defName>
+    <defName>libr_library_submap</defName>
     <label>the library</label>
     <isUnderground>false</isUnderground>
     <forceCaves>false</forceCaves>
     <ignoreAreaRevealedLetter>true</ignoreAreaRevealedLetter>
     <disableCallAid>true</disableCallAid>
     <pocketMapProperties>
-      <biome>Underground</biome>
+      <biome>libr_library_biome</biome>
       <temperature>15</temperature>
     </pocketMapProperties>
     <genSteps>
-      <li>LibraryFloor_genstep</li>
+      <li>libr_LibraryFloor_genstep</li>
       <li>Fog</li>
     </genSteps>
   </MapGeneratorDef>
 
   <GenStepDef>
-    <defName>LibraryFloor_genstep</defName>
+    <defName>libr_LibraryFloor_genstep</defName>
     <order>551</order>
     <genStep Class="LibraryOfTheRim.GenStep_test" />
   </GenStepDef>
